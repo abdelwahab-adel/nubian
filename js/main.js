@@ -1,5 +1,5 @@
 /* =========================================================================
-   النوبة · أسوان    data + interactions
+   النوبة · أسوان — data + interactions
    No backend, no localStorage (keeps the page fully portable + artifact-safe).
    All state lives in memory for the duration of the visit.
    ========================================================================= */
@@ -11,7 +11,7 @@
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* =======================================================================
-     DATA    Nubian dictionary (Fadicca / Kenzi), transcribed from the source
+     DATA — Nubian dictionary (Fadicca / Kenzi), transcribed from the source
      content document. Numbers use a single traditional form for both.
      ======================================================================= */
   const DICTIONARY = {
@@ -25,7 +25,7 @@
       { key: "qualities",label: "صفات", en: "Qualities" },
       { key: "numbers",  label: "الأرقام", en: "Numbers" },
     ],
-    words: [
+       words: [
   // عبارات أساسية
   { cat:"phrases", ar:"تحية (مرحباً)", en:"Greeting (Hello)", fadicca:"مسكاقنا / سليمو", kenzi:"مسكاقرو / سليمو" },
 
@@ -228,7 +228,7 @@
   };
 
   /* =======================================================================
-     DATA    Gallery (every file from /assets, tagged + captioned)
+     DATA — Gallery (every file from /assets, tagged + captioned)
      ======================================================================= */
   const GALLERY = [
     { base:"nile-terrace-building", tag:"architecture", label:"العمارة", label_en:"Architecture", alt:"مبنى نوبي على ضفاف النيل", alt_en:"A Nubian building on the banks of the Nile" },
@@ -246,7 +246,7 @@
     { base:"museum-ramses-statue", tag:"history", label:"آثار وتاريخ", label_en:"History & antiquities", alt:"تمثال حجري لرمسيس الثاني في متحف النوبة", alt_en:"A stone statue of Ramesses II at the Nubian Museum" },
     { base:"music-band-daf", tag:"music", label:"الموسيقى والرقص", label_en:"Music & dance", alt:"فرقة موسيقية نوبية تؤدي بالدفوف", alt_en:"A Nubian musical troupe performing with frame drums" },
     { base:"music-nile-musicians", tag:"music", label:"الموسيقى والرقص", label_en:"Music & dance", alt:"عازفان نوبيان يعزفان بجوار النيل", alt_en:"Two Nubian musicians playing by the Nile" },
-    { base:"music-tanbur-instrument", tag:"music", label:"الموسيقى والرقص", label_en:"Music & dance", alt:"التنبور هو الآلة الوترية المقدسة في الموسيقى النوبية، يصنع منها الفنان أغانيَ للفرح والحب والحنين، وتتوارثه الأجيال كما تتوارث الأرض والاسم.", alt_en:"The tanbur is the sacred stringed instrument of Nubian music    artists shape from it songs of joy, love and longing, and it is handed down through generations like land and name." },
+    { base:"music-tanbur-instrument", tag:"music", label:"الموسيقى والرقص", label_en:"Music & dance", alt:"التنبور هو الآلة الوترية المقدسة في الموسيقى النوبية، يصنع منها الفنان أغانيَ للفرح والحب والحنين، وتتوارثه الأجيال كما تتوارث الأرض والاسم.", alt_en:"The tanbur is the sacred stringed instrument of Nubian music — artists shape from it songs of joy, love and longing, and it is handed down through generations like land and name." },
     { base:"music-tar-players", tag:"music", label:"الموسيقى والرقص", label_en:"Music & dance", alt:"يتوارث النوبيون العزف على الدفوف والطبول جيلًا بعد جيل، في جلسات غير رسمية يعلّم فيها الكبار الصغار", alt_en:"Nubians pass down frame-drum and drum playing generation after generation, in informal sessions where elders teach the young" },
     { base:"music-drum-generations", tag:"music", label:"الموسيقى والرقص", label_en:"Music & dance", alt:"جيلان يعزفان الدفوف معًا في جلسة غير رسمية", alt_en:"Two generations playing frame drums together in an informal session" },
     { base:"handicrafts-market-street", tag:"crafts", label:"الحرف اليدوية", label_en:"Handicrafts", alt:"شارع وسوق نوبي للحرف والهدايا", alt_en:"A Nubian street market for crafts and gifts" },
@@ -276,15 +276,15 @@
   ];
 
   /* =======================================================================
-     DATA    Nubian video archive (6-video interactive gallery, Music section)
+     DATA — Nubian video archive (6-video interactive gallery, Music section)
      Local video files, NOT YouTube. Each video's file lives at assets/videos/
-        see assets/videos/README.txt for exact filenames expected.
+     — see assets/videos/README.txt for exact filenames expected.
      Poster images are auto-extracted from each video file (see build step).
      ======================================================================= */
 const NUBIAN_VIDEOS = [
   {
     videoSrc: "assets/videos/video-1.mp4",
-    poster: "assets/videos/video-1-poster.png",
+    poster: "assets/videos/video-1-poster.jpg",
     title: "النوبة – فخور أنا بحضارتي، النوبة فوق ❤️",
     title_en: "Nubia – Proud of My Civilization, Nubia Above All ❤️",
     artist: "خضر العطار",
@@ -294,7 +294,7 @@ const NUBIAN_VIDEOS = [
     description:
       "رحلة إلى عمق الهوية النوبية، نستحضر خلالها ملامح حضارة عريقة امتدت جذورها عبر آلاف السنين، ونكتشف إرثًا ثقافيًا أصيلًا ما زال حاضرًا في تفاصيل الحياة والفن واللغة والعادات. تعكس هذه الرحلة الفخر بتاريخ النوبة وثراء حضارتها، وتبرز جمال الفن النوبي بما يحمله من ألوان ورموز وتفاصيل تعبّر عن روح المكان وذاكرة الأجيال. ومن خلال هذا التراث، تتجلى العلاقة العميقة بين الإنسان النوبي وأرضه وتاريخه، حيث تتكامل الموسيقى واللغة والفنون والعادات والموروث الشعبي لتشكّل هوية متفردة حافظت على حضورها عبر العصور. إنها هوية نابضة بالحياة، تجمع بين أصالة الماضي وإبداع الحاضر، وتحمل قصة شعبٍ ما زال يروي تاريخه ويفتخر بجذوره من جيل إلى جيل.",
     description_en:
-      "A journey into the depths of Nubian identity, evoking the features of an ancient civilization whose roots stretch back thousands of years, and uncovering an authentic cultural legacy still present in the details of daily life, art, language and custom. This journey reflects pride in Nubia's history and the richness of its civilization, and highlights the beauty of Nubian art with its colors, symbols and details that express the spirit of the place and the memory of its generations. Through this heritage, the deep bond between the Nubian people, their land and their history becomes clear, as music, language, the arts, customs and folk tradition come together to form a distinctive identity that has endured across the ages    a living identity that blends the authenticity of the past with the creativity of the present, carrying the story of a people who still tell their history and take pride in their roots from generation to generation.",
+      "A journey into the depths of Nubian identity, evoking the features of an ancient civilization whose roots stretch back thousands of years, and uncovering an authentic cultural legacy still present in the details of daily life, art, language and custom. This journey reflects pride in Nubia's history and the richness of its civilization, and highlights the beauty of Nubian art with its colors, symbols and details that express the spirit of the place and the memory of its generations. Through this heritage, the deep bond between the Nubian people, their land and their history becomes clear, as music, language, the arts, customs and folk tradition come together to form a distinctive identity that has endured across the ages — a living identity that blends the authenticity of the past with the creativity of the present, carrying the story of a people who still tell their history and take pride in their roots from generation to generation.",
     hashtags: [
       "#النوبة",
       "#فخور_أنا",
@@ -316,7 +316,7 @@ const NUBIAN_VIDEOS = [
 
   {
     videoSrc: "assets/videos/video-2.mp4",
-    poster: "assets/videos/video-2-poster.png",
+    poster: "assets/videos/video-2-poster.jpg",
     title: "حسن جزولي – فرح نوبي في ستينيات القرن الماضي",
     title_en: "Hassan Gozouli – A Nubian Wedding in the 1960s",
     artist: "حسن جزولي",
@@ -347,7 +347,7 @@ const NUBIAN_VIDEOS = [
 
   {
     videoSrc: "assets/videos/video-3.mp4",
-    poster: "assets/videos/video-3-poster.png",
+    poster: "assets/videos/video-3-poster.jpg",
     title: "أحمد منيب ومحمد منير – لقاء من ذاكرة الفن النوبي",
     title_en: "Ahmed Mounib & Mohamed Mounir – A Moment from Nubian Art's Memory",
     artist: "أحمد منيب ومحمد منير",
@@ -411,7 +411,7 @@ const NUBIAN_VIDEOS = [
 
   {
     videoSrc: "assets/videos/video-5.mp4",
-    poster: "assets/videos/video-5-poster.png",
+    poster: "assets/videos/video-5-poster.jpg",
     title: "هشام باطه – أجواء حنّة نوبية من توشكي غرب",
     title_en: "Hisham Bataa – A Nubian Henna Night from Toshka West",
     artist: "هشام باطه",
@@ -421,7 +421,7 @@ const NUBIAN_VIDEOS = [
     description:
       "أجواء حنّة نوبية أصيلة من توشكي غرب، في مشهد يحتفي بواحدة من أبرز المناسبات الاجتماعية في الثقافة النوبية. تمتزج الموسيقى والغناء والرقص مع طقوس الاحتفال، لتصنع أجواءً مليئة بالفرح والبهجة، وتكشف جانبًا من العادات والتقاليد التي حافظ عليها المجتمع النوبي وحرص على تناقلها عبر الأجيال. وتجتمع العائلة والأصدقاء في هذه المناسبة لمشاركة العروس فرحتها، وسط الأغاني النوبية والإيقاعات الشعبية، لتصبح الحنّة أكثر من مجرد احتفال؛ فهي مساحة للتعبير عن الانتماء والهوية واستمرار التراث في الحياة اليومية.",
     description_en:
-      "An authentic Nubian henna night from Toshka West, celebrating one of the most important social occasions in Nubian culture. Music, singing and dance blend with the rituals of celebration to create an atmosphere full of joy, revealing customs and traditions that Nubian society has preserved and made a point of passing down through the generations. Family and friends gather on this occasion to share the bride's happiness amid Nubian songs and folk rhythms, making the henna night more than a celebration    a space for expressing belonging and identity, and for keeping heritage alive in everyday life.",
+      "An authentic Nubian henna night from Toshka West, celebrating one of the most important social occasions in Nubian culture. Music, singing and dance blend with the rituals of celebration to create an atmosphere full of joy, revealing customs and traditions that Nubian society has preserved and made a point of passing down through the generations. Family and friends gather on this occasion to share the bride's happiness amid Nubian songs and folk rhythms, making the henna night more than a celebration — a space for expressing belonging and identity, and for keeping heritage alive in everyday life.",
     hashtags: [
       "#هشام_باطه",
       "#توشكي_غرب",
@@ -442,7 +442,7 @@ const NUBIAN_VIDEOS = [
 
   {
     videoSrc: "assets/videos/video-6.mp4",
-    poster: "assets/videos/video-6-poster.png",
+    poster: "assets/videos/video-6-poster.jpg",
     title: "محمود فوزي – فرح نوبي في السعودية",
     title_en: "Mahmoud Fawzy – A Nubian Wedding in Saudi Arabia",
     artist: "محمود فوزي",
@@ -474,7 +474,7 @@ const NUBIAN_VIDEOS = [
   },
 ];
   /* =======================================================================
-     DATA    Quiz (from the source document, verbatim questions/answers)
+     DATA — Quiz (from the source document, verbatim questions/answers)
      ======================================================================= */
   const QUIZ = [
     { q:"ماذا تعني كلمة «نوب» في اللغة المصرية القديمة؟", q_en:"What does the word \"Nub\" mean in the ancient Egyptian language?", options:["الماء","الذهب","الشمس"], options_en:["Water","Gold","The sun"], correct:1 },
@@ -482,7 +482,7 @@ const NUBIAN_VIDEOS = [
     { q:"من هو الملك النوبي الذي وحّد وادي النيل وحكم مصر؟", q_en:"Which Nubian king unified the Nile Valley and ruled Egypt?", options:["بعنخي","رمسيس الثاني","إخناتون"], options_en:["Piye","Ramesses II","Akhenaten"], correct:0 },
     { q:"ما الآلة الموسيقية التي تعتبر «روح» الموسيقى النوبية؟", q_en:"Which instrument is considered the \"soul\" of Nubian music?", options:["العود","الطنبور (الكيسر)","الناي"], options_en:["The oud","The tanbur (kissar)","The nay flute"], correct:1 },
     { q:"ماذا يرمز «المثلث» في الزخارف النوبية؟", q_en:"What does the \"triangle\" symbolize in Nubian decoration?", options:["النيل","الأهرامات أو الحماية","النخيل"], options_en:["The Nile","Pyramids or protection","Palm trees"], correct:1 },
-    //    أُضيفت الأسئلة التالية بالاعتماد على محتوى الموقع نفسه كمرجع أساسي   
+    // — أُضيفت الأسئلة التالية بالاعتماد على محتوى الموقع نفسه كمرجع أساسي —
     { q:"ما أول دولة مركزية قامت في أفريقيا جنوب الصحراء؟", q_en:"What was the first centralized state in sub-Saharan Africa?", options:["مملكة كرمة","مملكة مروي","مملكة نبتة"], options_en:["The Kingdom of Kerma","The Kingdom of Meroë","The Kingdom of Napata"], correct:0 },
     { q:"بأي صناعة اشتهرت مملكة مروي، إلى جانب بناء مئات الأهرامات؟", q_en:"For which industry was the Kingdom of Meroë famous, besides building hundreds of pyramids?", options:["صناعة الحديد","صناعة الزجاج","صناعة الورق"], options_en:["Ironworking","Glassmaking","Papermaking"], correct:0 },
     { q:"بين أي عامين حكم ملوك الأسرة الخامسة والعشرين، الملقّبون بـ«الفراعنة السود»، مصر والنوبة معًا؟", q_en:"Between which years did the kings of the 25th Dynasty, known as the \"Black Pharaohs,\" rule Egypt and Nubia together?", options:["٧٤٤–٦٥٦ ق.م","١٠٧٠–٧٥٠ ق.م","٣٥٠–٥٥٠ م"], options_en:["744–656 BCE","1070–750 BCE","350–550 CE"], correct:0 },
@@ -553,7 +553,7 @@ const NUBIAN_VIDEOS = [
   $$(".mobile-drawer a").forEach(a => on(a, "click", () => drawer.classList.remove("open")));
 
   /* =======================================================================
-     Theme toggle (in-memory only    safe for artifact previews & portable use)
+     Theme toggle (in-memory only — safe for artifact previews & portable use)
      ======================================================================= */
   let theme = "light";
   const themeBtn = $("#btn-theme");
@@ -574,7 +574,7 @@ const NUBIAN_VIDEOS = [
   function isEn() { return lang === "en"; }
   const langButtons = $$(".lang-switch button");
 
-  // Any JS-driven section (dictionary, gallery, quiz, video gallery…) that
+  // Any JS-driven section (dictionary, gallery, quiz, video gallery) that
   // needs to redraw its own text when the language changes registers a
   // callback here. Static markup is handled generically below via [data-en].
   const langRefreshHooks = [];
@@ -621,8 +621,8 @@ const NUBIAN_VIDEOS = [
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute("content", lang === "en"
-        ? "Discover the ancient civilization of Nubia    history, culture, language, crafts, cuisine and landmarks in Aswan"
-        : "اكتشف حضارة النوبة العريقة    التاريخ، الثقافة، اللغة، الحرف، المطبخ، والمعالم في أسوان");
+        ? "Discover the ancient civilization of Nubia — history, culture, language, crafts, cuisine and landmarks in Aswan"
+        : "اكتشف حضارة النوبة العريقة — التاريخ، الثقافة، اللغة، الحرف، المطبخ، والمعالم في أسوان");
     }
     $$(".counter-num[data-count]").forEach(el => {
       const target = parseInt(el.dataset.count, 10) || 0;
@@ -633,6 +633,33 @@ const NUBIAN_VIDEOS = [
   }
   langButtons.forEach(b => on(b, "click", () => { lang = b.dataset.lang; applyLang(); }));
   applyLang();
+
+  /* =======================================================================
+     Lazy-load standalone <video data-src="..."> elements — the poster shows
+     immediately, but the actual video file is only fetched once the visitor
+     scrolls near it. This matters even with preload="metadata": on hosts
+     that don't honor HTTP Range requests properly, "metadata" can silently
+     turn into "the whole file", so we simply never set src until needed.
+     ======================================================================= */
+  $$("video.lazy-video[data-src]").forEach(video => {
+    function activate() {
+      if (video.dataset.src) {
+        video.src = video.dataset.src;
+        video.removeAttribute("data-src");
+        video.load();
+      }
+    }
+    if ("IntersectionObserver" in window) {
+      const vio = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { activate(); vio.disconnect(); }
+        });
+      }, { rootMargin: "400px 0px" });
+      vio.observe(video);
+    } else {
+      activate();
+    }
+  });
 
   /* =======================================================================
      Scroll reveal (IntersectionObserver)
@@ -719,7 +746,7 @@ const NUBIAN_VIDEOS = [
         </button>`).join("");
     }
 
-    // Updates only the text/info panel for video i, in the current language   
+    // Updates only the text/info panel for video i, in the current language —
     // does NOT touch the <video> element, so switching language never
     // interrupts or restarts a video the visitor is currently watching.
     function renderInfo(i) {
@@ -737,15 +764,22 @@ const NUBIAN_VIDEOS = [
       counterEl.textContent = String(i + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
     }
 
-    function renderVideo(i) {
+    function renderVideo(i, opts) {
+      const loadNow = !opts || opts.loadNow !== false;
       const v = NUBIAN_VIDEOS[i];
       videoEl.pause();
       videoEl.poster = v.poster;
-      sourceEl.src = v.videoSrc;
-      videoEl.load();
+      if (loadNow) loadVideoSource(i);
       frameBgEl.style.backgroundImage = `url(${v.poster})`;
       renderInfo(i);
       $$(".vgallery-thumb", thumbsWrap).forEach((btn, idx) => btn.classList.toggle("active", idx === i));
+    }
+
+    let sourceLoaded = false;
+    function loadVideoSource(i) {
+      sourceEl.src = NUBIAN_VIDEOS[i].videoSrc;
+      videoEl.load();
+      sourceLoaded = true;
     }
 
     onLangChange(() => { renderThumbs(); renderInfo(vIndex); });
@@ -759,8 +793,28 @@ const NUBIAN_VIDEOS = [
     on(prevBtn, "click", () => { vIndex = (vIndex - 1 + total) % total; renderVideo(vIndex); });
     on(nextBtn, "click", () => { vIndex = (vIndex + 1) % total; renderVideo(vIndex); });
 
+    // Show the poster/info for video 1 immediately (cheap — a small compressed
+    // JPEG), but don't fetch the actual .mp4 until the visitor actually scrolls
+    // near this section. On hosts that don't honor Range requests properly,
+    // preload="metadata" alone can silently pull the whole file on page load;
+    // gating the <source> behind IntersectionObserver fixes that regardless of
+    // server behavior, and keeps first paint fast.
     renderThumbs();
-    renderVideo(0);
+    renderVideo(0, { loadNow: false });
+    const gallerySection = videoEl.closest(".video-gallery") || videoEl.closest("section");
+    if (gallerySection && "IntersectionObserver" in window) {
+      const lazyLoadIO = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !sourceLoaded) {
+            loadVideoSource(vIndex);
+            lazyLoadIO.disconnect();
+          }
+        });
+      }, { rootMargin: "400px 0px" });
+      lazyLoadIO.observe(gallerySection);
+    } else {
+      loadVideoSource(0); // no IntersectionObserver support: fall back to eager load
+    }
   })();
 
   /* =======================================================================
@@ -877,7 +931,7 @@ const NUBIAN_VIDEOS = [
   }
 
   /* =======================================================================
-     Hero parallax + crossfade    kept subtle and minimal
+     Hero parallax + crossfade — kept subtle and minimal
      ======================================================================= */
   const heroImgs = $$(".hero-media img");
   if (heroImgs.length && !prefersReducedMotion) {
@@ -969,8 +1023,8 @@ const NUBIAN_VIDEOS = [
     }
     if (!list.length) {
       dictGrid.innerHTML = isEn()
-        ? `<div class="dict-empty">No matches for your search    try another word.</div>`
-        : `<div class="dict-empty">لا توجد نتائج مطابقة لبحثك    جرّب كلمة أخرى.</div>`;
+        ? `<div class="dict-empty">No matches for your search — try another word.</div>`
+        : `<div class="dict-empty">لا توجد نتائج مطابقة لبحثك — جرّب كلمة أخرى.</div>`;
       return;
     }
     const bothLabel = isEn() ? "Both dialects" : "اللهجتان";
@@ -1054,7 +1108,7 @@ const NUBIAN_VIDEOS = [
   renderDictGrid();
   onLangChange(() => { renderDictCategories(); renderDictGrid(); });
 
-  // Word of the day    deterministic by day-of-year, no server needed
+  // Word of the day — deterministic by day-of-year, no server needed
   const wordOfDayEl = $("#word-of-day-content");
   function renderWordOfDay() {
     if (!wordOfDayEl) return;
@@ -1179,7 +1233,7 @@ const NUBIAN_VIDEOS = [
     const label = isEn() ? g.label_en : g.label;
     lbImg.src = `${IMG}${g.base}-thumb.jpg`;
     lbImg.alt = alt;
-    lbCaption.textContent = `${alt}    ${label}`;
+    lbCaption.textContent = `${alt} — ${label}`;
   }
   function closeLightbox() {
     lightbox.classList.remove("open");
@@ -1198,6 +1252,12 @@ const NUBIAN_VIDEOS = [
 
   renderGalleryFilters();
   renderGallery();
+  // Any element outside the main gallery grid (e.g. the architecture photo strip) that references
+  // a GALLERY entry via data-gallery-index opens the same shared lightbox when clicked.
+  $$("[data-gallery-index]").forEach(item => {
+    if (item.closest("#gallery-grid")) return; // already wired by renderGallery() above
+    on(item, "click", () => openLightbox(parseInt(item.dataset.galleryIndex, 10)));
+  });
   onLangChange(() => {
     renderGalleryFilters();
     renderGallery();
@@ -1227,28 +1287,15 @@ const NUBIAN_VIDEOS = [
     testiDotsWrap.innerHTML = testiSlides.map((_, i) => `<button class="${i===testiIndex?'active':''}" data-i="${i}"></button>`).join("");
     $$("button", testiDotsWrap).forEach(b => on(b, "click", () => { testiIndex = parseInt(b.dataset.i, 10); updateTesti(); }));
   }
-function updateTesti() {
+  function updateTesti() {
     const track = $("#testi-track");
-
-    if (track) {
-        track.style.transform = `translate3d(-${testiIndex * 100}%, 0, 0)`;
-    }
-
+    const dir = document.documentElement.dir === "rtl" ? "" : "-";
+    if (track) track.style.transform = `translateX(${dir}${testiIndex * 100}%)`;
     renderTestiDots();
-}
- on($("#testi-prev"), "click", () => {
-    testiIndex =
-        (testiIndex - 1 + testiSlides.length) % testiSlides.length;
-
-    updateTesti();
-});
-
-on($("#testi-next"), "click", () => {
-    testiIndex =
-        (testiIndex + 1) % testiSlides.length;
-
-    updateTesti();
-}); if (testiSlides.length) {
+  }
+  on($("#testi-prev"), "click", () => { testiIndex = (testiIndex - 1 + testiSlides.length) % testiSlides.length; updateTesti(); });
+  on($("#testi-next"), "click", () => { testiIndex = (testiIndex + 1) % testiSlides.length; updateTesti(); });
+  if (testiSlides.length) {
     renderTestiDots();
     if (!prefersReducedMotion) {
       let testiTimer = setInterval(() => { testiIndex = (testiIndex + 1) % testiSlides.length; updateTesti(); }, 6500);
@@ -1358,8 +1405,8 @@ on($("#testi-next"), "click", () => {
     const note = $("#newsletter-note");
     if (input && input.value.trim()) {
       note.textContent = isEn()
-        ? "Thanks for joining    we'll send you the latest Nubian stories."
-        : "شكرًا لانضمامك    سنراسلك بجديد حكايات النوبة.";
+        ? "Thanks for joining — we'll send you the latest Nubian stories."
+        : "شكرًا لانضمامك — سنراسلك بجديد حكايات النوبة.";
       input.value = "";
     } else if (note) {
       note.textContent = isEn() ? "Please enter a valid email address." : "من فضلك أدخل بريدًا إلكترونيًا صحيحًا.";
